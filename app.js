@@ -7,7 +7,14 @@ const app= express();
 //definizione della porta
 const port = 3000;
 
+//importo il file di router
+const postRouter = require('./routers/postRouter');
+
 //permetto l' utilizzo degli asset statici
+app.use(express.static('public'));
+
+//utilizzo il file di router per definire le rotte dei posts
+app.use('/posts', postsRouter);
 
 // definizione della rotta base
 app.get('/', (req, res) => {
